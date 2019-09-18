@@ -28,8 +28,20 @@
 #
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        nums_index = [(v, index) for index, v in enumerate(nums)]
+        
+        nums_index = [(v, index) for index, v in enumerate(nums)] 
+        #enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标
+        
         nums_index.sort()
+        '''
+        获取列表的第二个元素
+        def takeSecond(elem):
+            return elem[1]
+        random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+        指定第二个元素排序
+        random.sort(key=takeSecond)
+        '''
+        
         begin, end = 0, len(nums) - 1
         while begin < end:
             curr = nums_index[begin][0] + nums_index[end][0]
@@ -39,5 +51,6 @@ class Solution:
                 begin += 1
             else:
                 end -= 1
+        #除sort排序外，时间复杂度O(n)
         
 
