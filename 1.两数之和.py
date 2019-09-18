@@ -52,5 +52,5 @@ class Solution:
             else:
                 end -= 1
         #除sort排序外，时间复杂度O(n)
-        
+        #也可遍历尝试，O(n^2)
 
