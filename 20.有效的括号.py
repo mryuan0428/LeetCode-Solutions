@@ -59,5 +59,27 @@
 #
 class Solution:
     def isValid(self, s: str) -> bool:
+        Left = ['(', '[', '{']
+        #Right= [')', ']', '}']
+        isLeft = {')':'(', '}':'{', ']':'['}
         
+        stack = []
+        for punc in s:   #punctuation 标点符号
+            if punc in Left:
+                stack.append(punc)
+            else:
+                if stack == []: #先判断栈是否为空
+                    return False
+                elif stack[len(stack)-1] == isLeft[punc]: #配对成功，出栈
+                    stack.pop()
+                else:
+                    return False
+        
+        #全部判断完后还要看栈是否为空
+        if stack == []:
+            return True
+        else:
+            return False
+
+
 
