@@ -30,20 +30,47 @@
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        pl1 = l1
-        pl2 = l2
+        #pl1 = l1
+        #pl2 = l2   没必要
         
         #head = pl1
         #end = head
         #这样不行，这样的话相当于 pl1 head end 都对应同一个节点实例
         #head和end应该创建一个新的类实例
 
+        head = curr = ListNode(1)
+
+        #判断链表l1或l2是否为空
+        if l1 is None:
+            return l2
+        if l2 is None:
+            return l1
+
+        #选取头结点
+        if l1.val <= l2.val:
+            head = l1
+            curr = head
+            l1 = l1.next
+        else:
+            head = l2
+            curr = head
+            l2 = l2.next
+
+        while l1 is not None and l2 is not None:
+            if l1.val <= l2.val:
+                curr.next = l1
+                curr = curr.next
+                l1 = l1.next
+            else:
+                curr.next = l2
+                curr = curr.next
+                l2 = l2.next
+
+        #判断剩余链
+        if l1 is None:
+            curr.next = l2
+        else:
+            curr.next = l1
         
-
-        if pl1.val <= pl2.val:
-            head = pl1 
-
-        while pl1!= None && pl2 != None:
-
-        
+        return head        
 
