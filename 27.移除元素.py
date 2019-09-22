@@ -60,5 +60,22 @@
 #
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
+        if nums == []:
+            return 0
+        if len(nums) == 1:
+            if nums[0] == val:
+                return 0
+            else:
+                return 1      
+
+        end, curr =0, 1 
+        #curr到最后为结束，end和curr之间全都等于val
+        while curr < len(nums) and end < len(nums):
+            if nums[end] != val:
+                end += 1
+            else:
+                if curr
+
+
         
 
