@@ -73,9 +73,18 @@ class Solution:
         while curr < len(nums) and end < len(nums):
             if nums[end] != val:
                 end += 1
-            else:
-                if curr
-
-
-        
+            else: #nums[end] == val
+                if curr <= end:
+                    curr = end + 1
+                if curr >= len(nums):
+                    return end
+                if nums[curr] != val:
+                    tmp = nums[end]
+                    nums[end] = nums[curr]
+                    nums[curr] = tmp
+                    end += 1
+                    curr += 1
+                else:
+                    curr += 1
+        return end
 
