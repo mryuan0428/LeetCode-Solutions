@@ -44,5 +44,22 @@
 #
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
+        if nums == [] or nums[0] >= target:
+            return 0
+        if nums[len(nums)-1] < target:
+            return len(nums)
+
+        pt = 0
+        while pt < len(nums)-1:
+            if nums[pt] == target:
+                return pt
+            if nums[pt] < target and nums[pt+1] >target:
+                return pt+1
+            pt += 1
+
+        if nums[pt] == target:
+            return pt
+        else:
+            return pt+1
         
 
