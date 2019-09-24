@@ -52,10 +52,20 @@ class Solution:
             return str0
 
         p_s, p_e =0, 0
-        curr = 1
-        cnt = 1
-        for i in range[n]: # 0-n-1  n个
+        for i in range(n-1): # 0-n-2  n-1个
+            str1 = ''
+            while p_s < len(str0):
+                curr = str0[p_s]
+                cnt = 0
+                while p_e < len(str0) and str0[p_e] == curr: #判断p_e边界
+                    p_e += 1
+                    cnt += 1
+                #cnt为curr个数，p_e指向下一个curr开头
+                str1 = str1 + str(cnt) +str(curr)
+                p_s = p_e
 
-
+            str0 = str1
+            p_s, p_e = 0, 0
+        return str0
         
 
