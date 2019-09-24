@@ -51,6 +51,11 @@ class Solution:
         if n == 1:
             return str0
 
-        
+        p_s, p_e =0, 0
+        curr = 1
+        cnt = 1
+        for i in range[n]: # 0-n-1  n个
+
+
         
 
