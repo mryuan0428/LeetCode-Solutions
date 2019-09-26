@@ -137,5 +137,8 @@ class Solution:
         
         return Msum   '''
 #还是超时
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
 
+        
 
