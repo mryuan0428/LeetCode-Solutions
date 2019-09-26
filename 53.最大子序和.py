@@ -79,7 +79,7 @@ class Solution:
 # 首先将nums中连续的负数和正数各加起来，组成一个新列表
 # 若全正，输出和；全负输出最小的；
 
-class Solution:
+'''class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         n = len(nums)
         if n == 1:
@@ -112,7 +112,10 @@ class Solution:
 
         n = len(nnums)    
         if n == 1:
-            return(max(nums))
+            if nnums[0] < 0:
+                return(max(nums))
+            else:
+                return nnums[0]
 
         #创建二维数组
         Lsum = []
@@ -132,6 +135,7 @@ class Solution:
                     Msum = Lsum[i][j-i]
                 j += 1
         
-        return Msum   
+        return Msum   '''
+#还是超时
 
 
