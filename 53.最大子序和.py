@@ -107,6 +107,7 @@ class Solution:
                     nnums.append(s_temp)
                     s_temp = nums[i]
                     sign = False
+        nnums.append(s_temp)##################别漏了
         #经过之前步骤，得到nnums
 
         n = len(nnums)    
