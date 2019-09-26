@@ -82,39 +82,52 @@ class Solution:
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         n = len(nums)
-        if n == 0:
-            return 0
         if n == 1:
             return nums[0]
         
+        nnums = []
+        s_temp = nums[0]
+        if nums[0] > 0:
+            sign = True
+        else:
+            sign = False
+
+        for i in range(1,n):
+            if nums[i] > 0:
+                if sign == True:
+                    s_temp += nums[i]
+                else:
+                    nnums.append(s_temp)
+                    s_temp = nums[i]
+                    sign = True
+            else:
+                if sign == False:
+                    s_temp += nums[i]
+                else:
+                    nnums.append(s_temp)
+                    s_temp = nums[i]
+                    sign = False
+        #经过之前步骤，得到nnums
+
+        n = len(nnums)        
         #创建二维数组
         Lsum = []
         for i in range(n):
             Lsum.append([])
 
-        Msum = nums[0]
+        Msum = nnums[0]
         for i in range(n):
             j = i
             while j < n:
                 if j == i:
-                    Lsum[i].append(nums[j])
+                    Lsum[i].append(nnums[j])
                 else:
-                    Lsum[i].append(Lsum[i][j-i-1]+nums[j]) #j-i-1
+                    Lsum[i].append(Lsum[i][j-i-1]+nnums[j]) #j-i-1
 
                 if Lsum[i][j-i] >= Msum: #j-i
                     Msum = Lsum[i][j-i]
                 j += 1
         
         return Msum   
-
-
-
-
-
-
-
-
-
-
 
 
