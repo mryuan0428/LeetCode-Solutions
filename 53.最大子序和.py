@@ -109,7 +109,10 @@ class Solution:
                     sign = False
         #经过之前步骤，得到nnums
 
-        n = len(nnums)        
+        n = len(nnums)    
+        if n == 1:
+            return(max(nums))
+
         #创建二维数组
         Lsum = []
         for i in range(n):
