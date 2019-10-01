@@ -138,6 +138,7 @@ class Solution:
         return Msum   '''
 #还是超时
 # 动态规划-尝试新方法：
+# 拖了一天
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
 
