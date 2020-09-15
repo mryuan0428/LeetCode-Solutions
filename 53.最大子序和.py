@@ -57,8 +57,8 @@ Your memory usage beats 94.74 % of python3 submissions (14.2 MB)
 '''
 
 # 学习新方法：
-# 动态规划：
 '''
+动态规划：
 假设 nums 数组的长度是n，下标从0到n−1。
 用 a_i 代表 nums[i]，用 f(i) 代表以第 i 个数结尾的「连续子数组的最大和」，那么很显然答案就是：
 max { f(i) }, 0≤i≤n−1
