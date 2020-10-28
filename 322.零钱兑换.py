@@ -69,5 +69,32 @@
 # @lc code=start
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
+        if amount == 0: 
+            return 0
+        
+        coins_s = [i for i in coins if i <= amount]
+        
+        l = len(coins_s)
+        if l == 1 and coins_s[0] == 1: 
+            return amount
+        if l < 1:
+            return -1
+        
+        for i in range(l):
+            if coins_s[i] == amount:
+                return 1
+        
+        dp = [10001]*(amount+1)
+        dp[0] = 0
+        for i in range(1,amount+1):
+            p=[]
+            for c in coins_s:
+                p.append(dp[i-c]+1 if i>=c else 10001)
+            dp[i] = min(p)
+        if dp[amount] > 10000:
+            return -1
+        else:
+            return dp[amount]
+
 # @lc code=end
 
