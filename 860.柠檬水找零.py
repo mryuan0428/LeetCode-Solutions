@@ -87,6 +87,7 @@ class Solution:
                 else: return False
             
             else:
+                #给20，最好找10+5，不行再找5*3
                 if money[1]>=1 and money[0]>=1:
                     money[2] = money[2]+1
                     money[0] = money[0]-1
