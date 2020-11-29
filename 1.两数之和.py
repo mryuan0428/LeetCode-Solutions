@@ -26,6 +26,7 @@
 # 
 # 
 #
+'''
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         
@@ -33,14 +34,14 @@ class Solution:
         #enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标
         
         nums_index.sort()
-        '''
-        获取列表的第二个元素
-        def takeSecond(elem):
-            return elem[1]
-        random = [(2, 2), (3, 4), (4, 1), (1, 3)]
-        指定第二个元素排序
-        random.sort(key=takeSecond)
-        '''
+        
+        #获取列表的第二个元素
+        #def takeSecond(elem):
+        #    return elem[1]
+        #random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+        #指定第二个元素排序
+        #random.sort(key=takeSecond)
+        
         
         begin, end = 0, len(nums) - 1
         while begin < end:
@@ -53,4 +54,13 @@ class Solution:
                 end -= 1
         #除sort排序外，时间复杂度O(n)
         #也可遍历尝试，O(n^2)
+'''
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dict_nums = dict()
+        for index, num in enumerate(nums):
+            if target - num in dict_nums:
+                return [index, dict_nums[target - num]]
+            dict_nums[num] = index
+        return []
 
