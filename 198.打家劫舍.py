@@ -45,7 +45,7 @@
 # 
 # 
 #
-
+# 「滚动数组思想」把空间复杂度优化成 O(1)
 # @lc code=start
 class Solution:
     def rob(self, nums: List[int]) -> int:
