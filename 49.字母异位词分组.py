@@ -35,7 +35,7 @@
 #
 
 # @lc code=start
-# 想法1: 将列表中的str 转为 set （O(NKlogK)）
+# 想法1: 将列表中的str 转为 tuple （O(NKlogK)）
 # 维持一个dict, set -> list[str]
 # 最后返回values即可
 # 想法二：用一个26位长的计数表来表示str（O(NK)）没有了sorted排序
