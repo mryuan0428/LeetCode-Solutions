@@ -71,6 +71,7 @@
 # @lc code=start
 class Solution:
     def backspaceCompare(self, S: str, T: str) -> bool:
+        '''
         S_stack = []
         T_stack = []
         for i in range(len(S)):
@@ -84,5 +85,38 @@ class Solution:
                     T_stack.pop()
             else: T_stack.append(T[i])
         return S_stack == T_stack
+        '''
+
+        # O(1)空间复杂度： 倒序双指针
+        Sskip, Tskip = 0, 0
+        i, j = len(S)-1, len(T)-1
+        while i >= 0 or j >= 0:
+            while i >= 0:
+                if S[i] == '#':
+                    Sskip += 1
+                    i -= 1
+                elif Sskip > 0:
+                    Sskip -= 1
+                    i -= 1
+                else: # 待比较字符
+                    break
+            while j >= 0:
+                if T[j] == '#':
+                    Tskip += 1
+                    j -= 1
+                elif Tskip > 0:
+                    Tskip -= 1
+                    j -= 1
+                else:
+                    break
+            
+            if i >= 0 and j >= 0:
+                if S[i] != T[j]:
+                    return False
+            elif i >= 0 or j >= 0:
+                return False
+            i -= 1
+            j -= 1
+        return True
 # @lc code=end
 
