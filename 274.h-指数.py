@@ -44,7 +44,7 @@ class Solution:
     #def hIndex(self, citations: List[int]) -> int:
     def hIndex(self, citations):
 
-        # 改进版快排，
+        # 改进版快排，由大到小
         def quickSort(l, r):
             if l >= r: return # 到达边界条件
             
