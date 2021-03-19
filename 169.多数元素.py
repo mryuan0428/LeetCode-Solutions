@@ -35,6 +35,7 @@
 # @lc code=start
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
+        '''
         n = len(nums)
         target = n // 2
         cnt = {}
@@ -44,6 +45,22 @@ class Solution:
             else: cnt[nums[i]] = 1
             if cnt[nums[i]] > target:
                 return nums[i]
+        '''
+        # 摩尔投票
+        l = len(nums)
+        if l == 1: return nums[0]
+
+        res = nums[0]
+        cnt = 1
+        for i in range(1,l):
+            if cnt == 0:
+                cnt += 1
+                res = nums[i]
+            elif res == nums[i]:
+                cnt += 1
+            else:
+                cnt -= 1
+        return res
 
 # @lc code=end
 

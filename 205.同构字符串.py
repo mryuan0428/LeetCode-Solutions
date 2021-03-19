@@ -41,16 +41,17 @@
 #
 
 # @lc code=start
+# 要建立一一映射
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         s_dict = {}
         t_dict = {}
         for i in range(len(s)):
             if s[i] in s_dict and t[i] in t_dict:
-                if s_dict[s[i]] != t_dict[t[i]]: return False
+                if s_dict[s[i]] != t[i] or t_dict[t[i]] != s[i]: return False
             elif s[i] not in s_dict and t[i] not in t_dict:
-                s_dict[s[i]] = i
-                t_dict[t[i]] = i
+                s_dict[s[i]] = t[i]
+                t_dict[t[i]] = s[i]
             else: return False
         return True
 # @lc code=end
